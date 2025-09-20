@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercices JavaScript - Technologies Web</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Technologies Web - JavaScript</h1>
+    <p>Exercices de révision - Convertisseur de devises et formulaires interactifs</p>
+
+    <div class="container">
+
+        <!-- I. Convertisseur de devises -->
+        <section id="section-converter">
+            <h2>I. Convertisseur de devises</h2>
+
+            <!-- 1. Première version -->
+            <h3>1. Première version</h3>
+            <label for="euros">Montant en Euros :</label>
+            <input type="number" id="euros" placeholder="Entrez le montant en EUR">
+            <button onclick="convertir()">Convertir</button>
+
+            <p id="usd-result">USD: </p>
+            <p id="aud-result">AUD: </p>
+
+            <!-- 2. Seconde version -->
+            <h3>2. Seconde version (conversion automatique)</h3>
+            <label for="euro-auto">Euros (EUR) :</label>
+            <input type="number" id="euro-auto" value="0" oninput="convertirDepuisEuro()">
+
+            <label for="usd-auto">Dollars US (USD) :</label>
+            <input type="number" id="usd-auto" value="0" oninput="convertirDepuisUsd()">
+
+            <label for="aud-auto">Dollars Australiens (AUD) :</label>
+            <input type="number" id="aud-auto" value="0" oninput="convertirDepuisAud()">
+        </section>
+
+        <!-- II. Formulaires -->
+        <section id="section-formulaire">
+            <h2>II. Formulaires</h2>
+
+            <!-- Menu pour afficher/cacher -->
+            <div>
+                <input type="checkbox" id="show-form" onchange="afficherFormulaire()">
+                <label for="show-form">Afficher le formulaire</label>
+            </div>
+
+            <!-- Contenu du formulaire -->
+            <div id="form-content">
+
+                <!-- Vérification Oui/Non -->
+                <h3>Vérification Oui / Non</h3>
+                <input type="text" id="reponse" placeholder="Entrez Oui ou Non">
+                <button onclick="verifier()">Vérifier</button>
+
+                <!-- Choix radio -->
+                <h3>Choix de périphérique</h3>
+                <input type="radio" id="choix1" name="choix" value="1" onchange="changerVolume('HP')">
+                <label for="choix1">Choix n°1</label><br>
+
+                <input type="radio" id="choix2" name="choix" value="2" onchange="changerVolume('Casque')">
+                <label for="choix2">Choix n°2</label><br>
+
+                <input type="radio" id="choix3" name="choix" value="3" onchange="changerVolume('Bluetooth')">
+                <label for="choix3">Choix n°3</label><br>
+
+                <!-- Volume -->
+                <label id="volume-label" for="volume">Volume :</label>
+                <input type="range" id="volume" min="0" max="11" value="5" oninput="majVolume()">
+                <p>Valeur actuelle : <span id="volume-value">5</span></p>
+
+                <!-- Mute -->
+                <input type="checkbox" id="mute" onchange="toggleMute()">
+                <label for="mute">Mute</label><br>
+
+                <!-- Date -->
+                <h3>Date</h3>
+                <input type="date" id="date-select" onchange="afficherDate()">
+
+                <!-- Progression -->
+                <h3>Barres de progression</h3>
+                <progress id="progress1" value="0" max="100"></progress>
+                <progress id="progress2" value="0" max="100"></progress>
+
+                <!-- Lien et image -->
+                <h3>Lien et image</h3>
+                <p>Lien : <a id="wiki-link" href="https://en.wikipedia.org">Wikipedia</a></p>
+                <div id="image-container"></div>
+            </div>
+        </section>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
